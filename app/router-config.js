@@ -10,7 +10,7 @@ export const router = new Router([
   {
     path: '',
     controllers: [WildPokemonController, SandboxPokemonController],
-    view: 'app/views/HomeViews.html'
+    view: 'app/views/HomeView.html'
 
 
   },
