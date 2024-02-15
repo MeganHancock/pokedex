@@ -9,7 +9,7 @@ export class Pokemon {
 
     get WildListOfPokemonTemplate() {
         return `
-        <h5>${this.name}</h5>
+        <button class="m-2 fs-3 btn btn-warning" onclick="app.WildPokemonController.getPokemonDetails('${this.name}')">${this.name}</button>
         `
     }
 }

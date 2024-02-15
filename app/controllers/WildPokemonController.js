@@ -10,13 +10,18 @@ function _drawWildList() {
     setHTML('wildPokemonList', htmlString)
 }
 
+function _drawDetailedPokemon() {
+    setHTML('activeDetailedPokemon', _drawDetailedPokemon)
+}
+
 export class WildPokemonController {
 
     constructor() {
-        console.log('wild pokemon controller')
+        // console.log('wild pokemon controller')
         this.getWildPokemon()
 
         AppState.on('wildPokemon', _drawWildList)
+        AppState.on('activeDetailedPokemon', _drawDetailedPokemon)
     }
 
     async getWildPokemon() {
@@ -26,6 +31,15 @@ export class WildPokemonController {
             Pop.error(error)
             console.error(error);
         }
+    }
 
+    async getPokemonDetails(pokeName) {
+        try {
+            // console.log('poke name', pokeName);
+            await wildPokemonService.getPokemonDetails(pokeName)
+        } catch (error) {
+            Pop.error(error)
+            console.error(error);
+        }
     }
 }
